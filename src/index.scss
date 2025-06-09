@@ -1,0 +1,97 @@
+@use './style/header';
+@use './style/home';
+@use './style/about';
+@use './style/global';
+@use './style/work';
+@use './style/services';
+@use './style/news';
+@use './style/contact';
+@use './style/footer';
+
+@import url('https://fonts.cdnfonts.com/css/futura');
+
+:root{
+  --primary-color: #FFE600;
+
+  --transition: all .4s ease-in-out;
+  --transition-quick: all .25s ease-in-out;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  font-family: 'Futura', sans-serif !important;
+  overflow-x: hidden;
+  background-color: white;
+}
+
+.loadingScreen{
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(255, 236, 6);
+  // filter: blur(12px);
+  z-index: 999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:  25px;
+
+  img{
+    height: 300px;
+    max-width: 400px;
+    width: 100%;
+    z-index: 9999;
+    backdrop-filter: blur(12px);
+    object-fit: contain;
+    @media (width < 800px){
+      max-height: 100px;
+    }
+  }
+
+
+}
+
+.mute_unmute{
+  all: unset;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffe600;
+
+  cursor: pointer;
+  z-index: 99;
+  img{
+    height: 15px;
+    width: 15px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(92%) sepia(13%) saturate(3905%) hue-rotate(358deg) brightness(101%) contrast(104%);
+    &.hide{
+      display: none;
+    }
+  }
+
+  @media (width < 800px){
+    bottom: 15px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+    img{
+      height: 12px;
+      width: 12px;
+    }
+  }
+}

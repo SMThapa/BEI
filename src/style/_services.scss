@@ -1,0 +1,686 @@
+
+.services {
+  .first_banner {
+    background-color: #49b9e0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+      align-items: center;
+    }
+  
+    .bulb-animation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+  
+      .circle_img {
+        width: 100%;
+        max-width: 400px;
+      }
+  
+      .bulb_image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        animation: eyeCatchingGlow 1.5s infinite alternate ease-in-out;
+      }
+      
+      
+  
+      .light_arrows {
+        position: absolute;
+        top: 32%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        z-index: 3;
+        transition: opacity 0.5s ease-in-out;
+      }
+  
+      &:hover .light_arrows {
+        opacity: 0;
+      }
+    }
+  
+    .brand-statergy {
+      text-align: center;
+      max-width: 600px;
+      color: #fff;
+      margin: auto;
+  
+      img {
+        width: 100%;
+        max-width: 450px;
+      }
+  
+      .inside_text {
+        margin-top: 20px;
+        font-size: 17px;
+        padding: 0 20px;
+      }
+    }
+  
+    @media (min-width: 768px) {
+      .banner-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+  
+    @media (min-width: 1024px) {
+      .banner-grid {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        align-items: center;
+      }
+  
+      .bulb-animation {
+        justify-self: center;
+      }
+  
+      .brand-statergy {
+        text-align: left;
+        justify-self: start;
+      }
+    }
+  }
+  
+  .second_banner {
+    background-color: #ffea00;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+  
+    .pen-animation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+  
+      .circle_img {
+        width: 100%;
+        max-width: 400px;
+      }
+  
+      .pen_image {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        animation: penGlow 1.5s infinite alternate ease-in-out;
+        transition: transform 0.3s ease-in-out;
+      }
+  
+      .fire {
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        z-index: 2;
+        transition: opacity 0.5s ease-in-out;
+        animation: fireFlicker 0.5s infinite alternate ease-in-out;
+      }
+  
+      &:hover .fire {
+        opacity: 0;
+      }
+  
+      &:hover .pen_image {
+        animation: shake 0.3s ease-in-out;
+      }
+    }
+  
+    .brand-statergy {
+      text-align: center;
+      max-width: 600px;
+      color: #000;
+      margin: auto;
+  
+      .strategy_img {
+        width: 100%;
+        max-width: 450px;
+      }
+  
+      .inside_text {
+        margin-top: 20px;
+        font-size: 17px;
+        padding: 0 20px;
+      }
+    }
+  
+    @media (min-width: 768px) {
+      .banner-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+  
+    @media (min-width: 1024px) {
+      .banner-grid {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        align-items: center;
+      }
+    }
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    25% { transform: translate(-50%, -50%) rotate(-5deg); }
+    50% { transform: translate(-50%, -50%) rotate(5deg); }
+    75% { transform: translate(-50%, -50%) rotate(-5deg); }
+    100% { transform: translate(-50%, -50%) rotate(0deg); }
+  }
+  
+  .third_banner {
+    background-color: #49b9e0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .boy-animation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .circle_img {
+        width: 100%;
+        max-width: 400px;
+        cursor: pointer;
+      }
+
+      .boy_image, .boy_image_close {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 180px;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      .boy_image_close {
+        opacity: 0; // Initially hidden
+      }
+
+      &:hover .boy_image {
+        opacity: 0;
+      }
+
+      &:hover .boy_image_close {
+        opacity: 1;
+      }
+    }
+
+    .brand-statergy {
+      text-align: center;
+      max-width: 600px;
+      color: #fff;
+      margin: auto;
+
+      .strategy_img {
+        width: 100%;
+        max-width: 450px;
+      }
+
+      .inside_text {
+        margin-top: 20px;
+        font-size: 17px;
+        padding: 0 20px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .banner-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .banner-grid {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        align-items: center;
+      }
+    }
+  }
+
+  .fourth_banner {
+    background-color: #ffea00;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .post-animation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .circle_img {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .post_image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        animation: floatJiggleEffect 3s infinite ease-in-out;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      &:hover .post_image {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+
+    .brand-strategy {
+      text-align: center;
+      max-width: 600px;
+      color: #000;
+      margin: auto;
+
+      .strategy_img {
+        width: 100%;
+        max-width: 450px;
+      }
+
+      .inside_text {
+        margin-top: 20px;
+        font-size: 17px;
+        padding: 0 20px;
+      }
+      .text-center{
+          span{
+              display: block;
+              font-size: 2.5rem;
+          }
+      }
+    }
+
+    @media (min-width: 768px) {
+      .banner-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .banner-grid {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        align-items: center;
+      }
+    }
+  }
+
+
+  .fifth_banner {
+    background-color: #49b9e0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+
+    .banner-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+    }
+
+    .social-animation {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .circle_img {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .hash_image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 240px;
+        animation: bounceFade 3s infinite ease-in-out;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+      }
+
+      &:hover .hash_image {
+        animation: bounceFadeHover 1.5s infinite ease-in-out;
+        opacity: 1;
+      }
+    }
+
+    .socialMedia-strategy {
+      text-align: center;
+      max-width: 600px;
+      color: #fff;
+      margin: auto;
+
+      .strategy_img {
+        width: 100%;
+        max-width: 450px;
+      }
+
+      .inside_text {
+        margin-top: 20px;
+        font-size: 17px;
+        padding: 0 20px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .banner-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .banner-grid {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        align-items: center;
+      }
+    }
+  }
+
+  .sixth_banner {
+    background-color: #ffea00;
+    background-size: 100% 100%;
+    background-position: bottom;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .banner-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+  }
+
+  .chart-animation {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .circle_img {
+      width: 100%;
+      max-width: 400px;
+      cursor: pointer;
+    }
+
+    .chart_image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 240px;
+      animation: scaleRotate 3s infinite ease-in-out;
+      transition: transform 0.4s ease-in-out;
+
+      &:hover {
+        animation: scaleRotateHover 1.5s infinite ease-in-out;
+      }
+    }
+  }
+
+  .brand-strategy {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+
+    .strategy_img {
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .inside_text {
+      margin-top: 20px;
+      font-size: 17px;
+      padding: 0 20px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .banner-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .banner-grid {
+      grid-template-columns: 1fr 1fr;
+      text-align: left;
+      align-items: center;
+    }
+  }
+
+  // Animations
+  @keyframes scaleRotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+    50% { transform: translate(-50%, -50%) rotate(10deg) scale(1.05); }
+    100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  }
+
+  @keyframes scaleRotateHover {
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(1.1); }
+    50% { transform: translate(-50%, -50%) rotate(10deg) scale(1.15); }
+    100% { transform: translate(-50%, -50%) rotate(0deg) scale(1.1); }
+  }
+}
+
+  // Bulb glow effect (Keeps glowing)
+  @keyframes eyeCatchingGlow {
+    0% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      filter: drop-shadow(0px 0px 10px rgba(255, 255, 100, 0.8)) brightness(1);
+    }
+    25% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(-2deg);
+      filter: drop-shadow(0px 0px 20px rgba(255, 255, 100, 1.5)) brightness(1.3);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1) rotate(2deg);
+      filter: drop-shadow(0px 0px 30px rgba(255, 255, 50, 2)) brightness(1.8);
+    }
+    75% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(-2deg);
+      filter: drop-shadow(0px 0px 40px rgba(255, 255, 50, 2.5)) brightness(2);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      filter: drop-shadow(0px 0px 50px rgba(255, 255, 50, 3)) brightness(2.5);
+    }
+  }
+
+  @keyframes penGlow {
+    0% {
+      filter: drop-shadow(0px 0px 5px rgba(255, 165, 0, 0.5)); // Light orange glow
+    }
+    100% {
+      filter: drop-shadow(0px 0px 15px rgba(255, 165, 0, 1)); // Stronger glow
+    }
+  }
+
+  // Flickering fire effect
+  @keyframes fireFlicker {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      opacity: 0.7;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+  }
+
+// Shake effect when hovering over pen
+  @keyframes shake {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    25% { transform: translate(-50%, -50%) rotate(-3deg); }
+    50% { transform: translate(-50%, -50%) rotate(3deg); }
+    100% { transform: translate(-50%, -50%) rotate(0deg); }
+  }
+
+  @keyframes floatJiggleEffect {
+    0% {
+      transform: translate(-50%, -50%) translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translate(-50%, -50%) translateY(-15px) translateX(-5px);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(0px) translateX(5px);
+    }
+    75% {
+      transform: translate(-50%, -50%) translateY(-15px) translateX(-5px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0px) translateX(0px);
+    }
+  }
+
+  @keyframes rotatePulse {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+  }
+
+  @keyframes bounceFade {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-10px);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
+      opacity: 1;
+    }
+  }
+
+// Hover Effect: Higher Bounce & Fully Visible
+  @keyframes bounceFadeHover {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-20px);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes scaleRotate {
+    0% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(3deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+  }
+
+// Hover Effect: Faster Spin & Growth
+  @keyframes scaleRotateHover {
+    0% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1) rotate(5deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.05) rotate(0deg);
+    }
+  }
+
+
