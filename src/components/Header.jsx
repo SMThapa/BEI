@@ -11,7 +11,7 @@ export const Header = () => {
   const [brandList, setBarndList] = useState([])
   const [openBrands, setOpenBrands] = useState(false)
 
-  const {pathname} = useLocation()
+  const {pathname} = useLocation()  
   useEffect(()=>{
     if(pathname == '/'){
       setOpenMenu(true)
@@ -50,13 +50,11 @@ export const Header = () => {
       callAPI()
     }
       
-  }, [])
-
-  console.log(brandList)
+  }, [])  
 
   return (
     <nav>
-      <div className="header nav-visible">
+      <div className={`header ${pathname.includes('work/brand') ? '': 'nav-visible'}`}>
         <div className="logo">
           <Link to={'/'}>
             <img src="/logo.png" alt="logo" />
@@ -87,7 +85,7 @@ export const Header = () => {
           <div className="brand-list">
             {
               brandList.map((brand, index)=>(
-                <Link to={'/work/brand/'+ brand.brand_name.split(" ").join("_")}>{brand.brand_name}</Link>
+                <Link to={'/work/brand/'+ brand.brand_name.split(" ").join("_")} key={index}>{brand.brand_name}</Link>
               ))
             }  
           </div>          

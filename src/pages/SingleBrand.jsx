@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react"
-import { useParams } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import { ImageGallery } from "../components/ImageGallery";
 import {BrandSlider} from '../components/BrandSlider';
 import {RenderEmbeddedText} from '../components/RenderEmbeddedText';
@@ -66,8 +66,13 @@ export const SingleBrand = () => {
   const handleLoadingScreen = (action) => {
     setTimeout(() => {
       setLoading(action)
-    }, 1000);
+    }, 1500);
   }
+
+  const {pathname} = useLocation()
+  useEffect(()=>{
+    setLoading(true)        
+  }, [pathname])
 
   return (
     <>
