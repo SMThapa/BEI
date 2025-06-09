@@ -1,9 +1,21 @@
+import { useEffect, useState } from 'react';
 import { FaFacebook, FaTwitter, FaDribbble, FaLinkedin } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const Footer = () => {
+
+    const {pathname} = useLocation();
+    const [show, setShow] = useState(true)
+    useEffect(()=>{
+        if(pathname == '/'){
+            setShow(false)
+        }else{
+            setShow(true)
+        }
+    }, [pathname])
+
   return (
-    <footer className="site-footer">
+    <footer className={`site-footer ${show ? '':'hide'}`}>
         <div className="container">
             <div className="grid">
                 <div className="col ">

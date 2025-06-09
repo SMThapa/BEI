@@ -1,9 +1,13 @@
 .site-footer{
+    &.hide{
+        display: none;
+    }
     background-color: #26272b;
     padding: 45px 0 20px;
     font-size: 1.1rem;
     line-height: 24px;
     color: #737373;
+
     .container{
         max-width: 1300px;
         width: 100%;

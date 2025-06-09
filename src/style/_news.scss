@@ -84,22 +84,28 @@
         // text-transform: uppercase;
         line-height: 1.2;
         font-size: clamp(1rem, 20vw, 1.4rem);
+        @media (width < 800px){
+          font-size: .9rem;
+        }
       }
 
       img{        
-        height: 80%;
-        width: 80%;
+        height: 70%;
+        width: 90%;
         object-fit: contain;   
         // object-position: bottom;     
       }
     }
-
   }
 
+
+  .swiper-button-prev:after, .swiper-button-next:after{
+    font-size: 30px !important;
+  }
   
   @media (width < 900px){
     .swiper-button-prev:after, .swiper-button-next:after{
-      font-size: 25px !important;
+      font-size: 18px !important;
     }
   }
 
