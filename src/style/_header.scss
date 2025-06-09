@@ -160,6 +160,7 @@ nav{
             .title{
                 font-size: 1.3rem;
                 margin-top: 70px;
+                margin-bottom: 12px;
 
                 display: flex;
                 justify-content: space-between;
@@ -169,7 +170,7 @@ nav{
                 }
             }
             .brand-list{
-                height: 90%;
+                height: 80%;
                 overflow-y: scroll;
                 scrollbar-width: none;
             }
