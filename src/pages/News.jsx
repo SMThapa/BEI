@@ -8,6 +8,8 @@ import 'swiper/css';
 import 'swiper/css/autoplay'; // only if needed
 import 'swiper/css/navigation';
 import { TbSettingsQuestion } from "react-icons/tb";
+import { FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft } from "react-icons/fa";
 
 
 export const News = () => {
@@ -46,6 +48,18 @@ export const News = () => {
         }, 1000);
     }
 
+    const slideRef = useRef(null);
+    const handlePrevSlide = () => {
+        if (slideRef.current) {
+        slideRef.current.slidePrev();
+        }
+    };
+    const handleNextSlide = () => {
+        if (slideRef.current) {
+        slideRef.current.slideNext();
+        }
+    };
+
   return (
     <>
         {
@@ -58,32 +72,36 @@ export const News = () => {
             <img src="/news/news.png" alt="img" className="img1" />
             <img src="/news/tag.jpg" alt="img" className="img2" />
             <div className="news-slider">
-            <Swiper
-                modules={[Navigation, Autoplay]}
-                navigation={true}
-                loop={news.length > 0}           
-                spaceBetween={50}                          
-                breakpoints={{
-                    900: { slidesPerView: 2 },                       
-                    0: { slidesPerView: 1 },
-                }}  
-            >
+                <Swiper
+                    modules={[Navigation, Autoplay]}
+                    // navigation={true}
+                    loop={news.length > 0}           
+                    spaceBetween={50}                          
+                    breakpoints={{
+                        900: { slidesPerView: 2 },                       
+                        0: { slidesPerView: 1 },
+                    }}  
+                    onSwiper={(swiper) => (slideRef.current = swiper)}
+                >
 
-                {news.map((item, index) => (
-                <SwiperSlide key={index}>
-                    <Link to={item.news_link} target="_blank">
-                    <div className="news_title">{item.news_title}</div>
-                    <img
-                        src={item.thumbnail_picture}
-                        className="swiper-lazy"
-                        alt={index}                    
-                        loading="lazy"                    
-                    />                  
-                    </Link>
-                </SwiperSlide>
-                ))}
-
-            </Swiper>
+                    {news.map((item, index) => (
+                    <SwiperSlide key={index}>
+                        <Link to={item.news_link} target="_blank">
+                        <div className="news_title">{item.news_title}</div>
+                        <img
+                            src={item.thumbnail_picture}
+                            className="swiper-lazy"
+                            alt={index}                    
+                            loading="lazy"                    
+                        />                  
+                        </Link>
+                    </SwiperSlide>
+                    ))}
+                </Swiper>
+                <>
+                    <button type="button" onClick={handlePrevSlide} className="left"><FaChevronLeft /></button>
+                    <button type="button" onClick={handleNextSlide} className="right"><FaChevronRight /></button>
+                </>
             </div>
 
         </div>

@@ -55,6 +55,29 @@
     }
 
 
+    button{
+      all: unset;
+      height: 50px;      
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index:5;      
+      &.right{
+        right: 15px;
+      }
+      &.left{
+        left: 15px;
+      }
+      svg{
+        height: 50px;
+        transform: var(--transition);
+      }
+
+      &:hover svg{
+        color: gray;
+      }
+    }
 
     .swiper-slide{
       max-height: 500px;
