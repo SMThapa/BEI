@@ -36,8 +36,12 @@ export const Header = () => {
       try{
         const res = await axios.get(api + '/allbrands');
         let newArr = res.data.data?.sort((a,b) => a.id - b.id)
-        setBarndList(newArr)        
-        sessionStorage.setItem('allBrands', JSON.stringify(newArr))  
+        let arrWithPosition = newArr.map((obj, index)=>({
+          ...obj,
+          position: index % 3
+        }))
+        setBarndList(arrWithPosition)        
+        sessionStorage.setItem('allBrands', JSON.stringify(arrWithPosition))  
       }catch(err){
         console.log(err)
       }

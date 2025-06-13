@@ -15,7 +15,8 @@ export const About = () => {
   const [brand, setBrand] = useState([]);
   const [videoSrc, setVideoSrc] = useState('');
   const [mute, setMute] = useState(false);  
-  
+
+
   useEffect(()=>{    
     async function getData(){
       try{
