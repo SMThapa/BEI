@@ -3,85 +3,87 @@ import axios from 'axios';
 
 export const Contact = () => {
 
-    const [formData, setFormData] = useState({
-        name: '',
-        organization_name: '',
-        email: '',
-        phone_number: '',
-        website_or_social_link: '',
+  const [formData, setFormData] = useState({
+    name: '',
+    organization_name: '',
+    email: '',
+    phone_number: '',
+    website_or_social_link: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+    ...formData,
+    [e.target.name]: e.target.value,
     });
+  };
 
-    const handleChange = (e) => {
+  const [success, setSuccess] = useState(false)
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [numError, setError]= useState('')
+  const [apiError, setApiError] = useState({})
+
+  const generateNumber = () =>{
+    setNum1(Math.floor(Math.random() * 100) + 1);
+    setNum2(Math.floor(Math.random() * 100) + 1);
+  }
+  useEffect(()=>{
+    generateNumber()
+  },[])
+
+  const api = import.meta.env.VITE_API_URL;  
+  const [btnLoading, setBtnLoading] = useState(false)
+  const handleSubmit = (e) => {
+    e.preventDefault();    
+    setSuccess(false) 
+    async function submitForm(){
+      try{
+        const res = await axios.post(api+'/contact', formData)
         setFormData({
-        ...formData,
-        [e.target.name]: e.target.value,
-        });
-    };
-
-    const [success, setSuccess] = useState(false)
-    const [num1, setNum1] = useState(0);
-    const [num2, setNum2] = useState(0);
-    const [numError, setError]= useState('')
-
-    const generateNumber = () =>{
-        setNum1(Math.floor(Math.random() * 100) + 1);
-        setNum2(Math.floor(Math.random() * 100) + 1);
-    }
-    useEffect(()=>{
+          name: '',
+          organization_name: '',
+          email: '',
+          phone_number: '',
+          website_or_social_link: '',
+        })
         generateNumber()
-    },[])
-
-    const api = import.meta.env.VITE_API_URL;  
-    const [btnLoading, setBtnLoading] = useState(false)
-    const handleSubmit = (e) => {
-
-        e.preventDefault();    
-        setSuccess(false) 
-        async function submitForm(){
-        try{
-            const res = await axios.post(api+'/contact', formData)
-            setFormData({
-            name: '',
-            organization_name: '',
-            email: '',
-            phone_number: '',
-            website_or_social_link: '',
-            })
-        }catch(err){
-            // console.log(err)
-        }finally{
-            setBtnLoading(false)
-            generateNumber()
-            setSuccess(true)
-            setFormData({
-            name: '',
-            organization_name: '',
-            email: '',
-            phone_number: '',
-            website_or_social_link: '',
-            })
-            e.target.check_human.value = ''
-        }
-        }
-
-        if(e.target.check_human.value == (num1 + num2)){
-        setBtnLoading(true)
-        submitForm()
-        setError('')            
-        }else{
-        setError('Incorrect!!!')
-        setSuccess(false) 
-        }
-    };
-
-    const [loading, setLoading] = useState(true);
-    const handleLoadingScreen = (action) => {    
-        setTimeout(() => {
-        setLoading(action)
-        }, 2500);
+        setSuccess(true)
+        setFormData({
+          name: '',
+          organization_name: '',
+          email: '',
+          phone_number: '',
+          website_or_social_link: '',
+        })
+        e.target.check_human.value = ''
+        setApiError({})
+      }catch(err){
+        console.log(err.response.data.errors)
+        setApiError(err.response.data.errors)
+      }finally{
+        setBtnLoading(false)
+      }
     }
-    handleLoadingScreen(false)
-    
+
+    if(e.target.check_human.value == (num1 + num2)){
+      setBtnLoading(true)
+      submitForm()
+      setError('')            
+    }else{
+      setError('Incorrect!!!')
+      setSuccess(false) 
+    }
+  };
+
+  const [loading, setLoading] = useState(true);
+  const handleLoadingScreen = (action) => {    
+    setTimeout(() => {
+    setLoading(action)
+    }, 2500);
+  }
+  handleLoadingScreen(false)
+  
   return (
     <div className="contact-form">
 
@@ -134,7 +136,7 @@ export const Contact = () => {
             />
           </div>
           <div className="form-group">
-            <label>Your Number</label>
+            <label>Your Number <span style={{color:'red', fontSize:'12px',marginLeft:'8px'}}>{apiError?.phone_number}</span></label>
             <input 
               type="number" 
               name="phone_number" 
