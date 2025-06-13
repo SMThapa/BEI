@@ -61,7 +61,7 @@ export const News = () => {
             <Swiper
                 modules={[Navigation, Autoplay]}
                 navigation={true}
-                loop={true}           
+                loop={news.length > 0}           
                 spaceBetween={50}                          
                 breakpoints={{
                     900: { slidesPerView: 2 },                       
