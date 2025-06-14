@@ -22,14 +22,14 @@ export const Header = () => {
     window.scrollTo(0,0)
   }, [pathname])
 
-  useEffect(()=>{
-    if(openMenu){
-      document.documentElement.style.overflow = 'hidden';
-    }else{
-      document.documentElement.style.overflow = '';
-      setOpenBrands(false)
-    }
-  }, [openMenu])
+  // useEffect(()=>{
+  //   if(openMenu){
+  //     document.documentElement.style.overflow = 'hidden';
+  //   }else{
+  //     document.documentElement.style.overflow = '';
+  //     setOpenBrands(false)
+  //   }
+  // }, [openMenu])
 
   useEffect(()=>{
     async function callAPI(){
