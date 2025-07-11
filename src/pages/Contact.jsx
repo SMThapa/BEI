@@ -40,13 +40,6 @@ export const Contact = () => {
     async function submitForm(){
       try{
         const res = await axios.post(api+'/contact', formData)
-        setFormData({
-          name: '',
-          organization_name: '',
-          email: '',
-          phone_number: '',
-          website_or_social_link: '',
-        })
         generateNumber()
         setSuccess(true)
         setFormData({

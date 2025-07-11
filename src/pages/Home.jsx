@@ -34,8 +34,8 @@ export const Home = () => {
     const setVideo = () => {
       setVideoSrc(
         mediaQuery.matches
-          ? videos.mobile_full_video
-          : videos.desktop_full_video
+          ? "https://res.cloudinary.com/dpxcgs7nr/video/upload/v1752240134/home-mobile_yvfi7w.mp4"
+          : "https://res.cloudinary.com/dpxcgs7nr/video/upload/v1752240134/home-desktop_tpimwe.mp4"
       );
     };
 

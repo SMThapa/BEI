@@ -55,9 +55,9 @@ export const About = () => {
     const setVideo = () => {      
       setVideoSrc(
         mediaQuery.matches
-          ? about.mobile_video
-          : about.desktop_video
-      );         
+          ? "https://res.cloudinary.com/dpxcgs7nr/video/upload/v1752239613/home-mobile_sai3wl.mp4"
+          : "https://res.cloudinary.com/dpxcgs7nr/video/upload/v1752239597/home-desktop_bs5fsv.mp4"
+      );        
     };
 
     setVideo()
